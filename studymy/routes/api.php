@@ -38,7 +38,8 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user', [AuthController::class, 'getUser']);
     Route::get('/user/{id}', [AuthController::class, 'getUserFromId']);
     Route::post('/users', [AuthController::class, 'store']);
-    Route::get('/teachers', [AuthController::class, 'getTeachers']);    
+    Route::get('/teachers', [AuthController::class, 'getTeachers']); 
+    Route::delete('/users/{id}', [AuthController::class, 'destroy']);   
 
     Route::get('/subjects', [SubjectController::class, 'index']);
     Route::get('/subjects/{id}', [SubjectController::class, 'show']);
@@ -47,13 +48,14 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/groups/{id}/subjects', [SubjectController::class, 'getSubjectsByGroupId']);
     Route::post('/subjects', [SubjectController::class, 'store']);
     Route::put('/subjects/{id}', [SubjectController::class, 'update']);
+    Route::delete('/subjects/{id}', [SubjectController::class, 'destroy']);
 
     Route::post('/groups', [GroupController::class, 'store']);
     Route::put('/groups/{id}', [GroupController::class, 'update']);
     Route::get('/groups', [GroupController::class, 'index']);
     Route::get('/groups/{id}', [GroupController::class, 'show']);
     Route::get('/groups/{groupId}/students', [GroupController::class, 'getStudentsInGroup']);
-
+    Route::delete('/groups/{id}', [GroupController::class, 'destroy']);
 
     Route::get('/lectures/{id}', [LectureController::class, 'show']);
     Route::put('/lectures/{id}', [LectureController::class, 'update']);

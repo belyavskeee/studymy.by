@@ -17,7 +17,8 @@ import CreateTimetablePage from "../components/pages/CreateTimetablePage.vue";
 import StoreErrorsPage from "../components/pages/StoreErrorsPage.vue";
 import AddSubjectPage from "../components/pages/AddSubjectPage.vue";
 import AddGroupPage from "../components/pages/AddGroupPage.vue";
-
+import DeleteUserPage from "../components/pages/DeleteUserPage.vue";
+import DeleteGroupPage from "../components/pages/DeleteGroupPage.vue";
 
 const routes = [
     {
@@ -139,7 +140,26 @@ const routes = [
         component: AddGroupPage,
         name: 'AddGroup',
         meta: { requiresAuth: true, allowedRoles: ['Модератор'] }
+    },
+    {
+        path: '/user/:id/delete', 
+        component: DeleteUserPage,
+        name: 'DeleteUser',
+        meta: { requiresAuth: true, allowedRoles: ['Модератор'] }
+    },
+    {
+        path: '/user/:id/delete', 
+        component: DeleteUserPage,
+        name: 'DeleteUser',
+        meta: { requiresAuth: true, allowedRoles: ['Модератор'] }
+    },
+    {
+        path: '/groups/study-groups/:id/delete', 
+        component: DeleteGroupPage,
+        name: 'DeleteGroup',
+        meta: { requiresAuth: true, allowedRoles: ['Модератор'] }
     }
+    
 ];
 
 

@@ -88,4 +88,18 @@ class GroupController extends Controller
 
         return response()->json($group, 200);
     }
+
+    public function destroy($id)
+    {
+        try {
+            $group = Group::findOrFail($id);
+            $group->delete();
+
+            return response()->json(['message' => 'Группа успешно удалена'], 200);
+        } catch (\Exception $e) {
+            \Log::error('Ошибка при удалении группы: ' . $e->getMessage());
+            return response()->json(['error' => 'Ошибка при удалении группы'], 500);
+        }
+    }
+
 }

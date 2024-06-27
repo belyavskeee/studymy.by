@@ -21,7 +21,7 @@ export default {
         { header: 'Удалить', path: '/groups/study-groups/'  + this.$route.params.id + '/delete'},
         // { header: 'Группы выпусники', value: 'Учебные группы которые выпустились', path: '/groups/graduates-groups' },
       ],
-      title: 'Учебная группа 2120',
+      title: 'Учебная группа',
     };
   },
   mounted() {

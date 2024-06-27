@@ -218,4 +218,17 @@ class AuthController extends Controller
         }
     }
 
+    public function destroy($id)
+    {
+        try {
+            $user = User::findOrFail($id);
+            $user->delete();
+
+            return response()->json(['message' => 'Пользователь успешно удалён'], 200);
+        } catch (\Exception $e) {
+            \Log::error('Ошибка при удалении пользователя: ' . $e->getMessage());
+            return response()->json(['error' => 'Ошибка при удалении пользователя'], 500);
+        }
+    }
+
 }

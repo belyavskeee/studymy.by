@@ -122,4 +122,18 @@ class SubjectController extends Controller
         $subject->update($data);
         return response()->json(['subject' => $subject]);
     }
+
+    public function destroy($id)
+    {
+        try {
+            $subject = Subject::findOrFail($id);
+            $subject->delete();
+
+            return response()->json(['message' => 'Предмет успешно удалён'], 200);
+        } catch (\Exception $e) {
+            \Log::error('Ошибка при удалении предмета: ' . $e->getMessage());
+            return response()->json(['error' => 'Ошибка при удалении предмета'], 500);
+        }
+    }
+
 }
